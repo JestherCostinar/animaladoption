@@ -18,7 +18,7 @@ function isAdminLoggedIn()
 
 function isUserLoggedIn()
 {
-    if (isset($_SESSION['user_id'])) {
+    if (isset($_SESSION['id'])) {
         return true;
     } else {
         return false;

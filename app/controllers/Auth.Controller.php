@@ -73,7 +73,7 @@ class Auth extends Controller
     // User Login Controller
     public function login() {
         $data = [
-            'title' => 'login',
+            'title' => 'Login',
             'loginMessage' => '',
         ];
 
@@ -382,8 +382,8 @@ class Auth extends Controller
     public function createAdminSession($user)
     {
         $_SESSION['admin_id'] = $user->id;
-        $_SESSION['username'] = $user->username;
-        $_SESSION['email'] = $user->email;
+        $_SESSION['admin_username'] = $user->username;
+        $_SESSION['admin_email'] = $user->email;
         header('location:' . URLROOT . '/dashboard/index');
     }
 
@@ -391,8 +391,8 @@ class Auth extends Controller
     public function adminLogout()
     {
         unset($_SESSION['admin_id']);
-        unset($_SESSION['username']);
-        unset($_SESSION['email']);
+        unset($_SESSION['admin_username']);
+        unset($_SESSION['admin_email']);
         header('location:' . URLROOT . '/auth/admin');
     }
 
@@ -407,9 +407,8 @@ class Auth extends Controller
     // Unset session after logout
     public function logout()
     {
-        unset($_SESSION['admin_id']);
-        unset($_SESSION['username']);
+        unset($_SESSION['id']);
         unset($_SESSION['email']);
-        header('location:' . URLROOT . '/auth/admin');
+        header('location:' . URLROOT . '/auth/login');
     }
 }
