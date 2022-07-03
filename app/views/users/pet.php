@@ -66,12 +66,12 @@ require APPROOT . '/views/users/includes/header.php';
             </div>
             <div class="col-md-4">
                 <div class="sidebar">
-                    <div class="widget price text-center">
+                    <div class="widget price text-center" style="margin-top: 6rem;">
                         <h4>Price</h4>
                         <p><?php echo number_format($data['animal']->adoption_fee, 2); ?></p>
                     </div>
                     <!-- Rate Widget -->
-                    <div class="widget rate">
+                    <div class=" widget rate">
                         <!-- Heading -->
                         <h5 class="widget-header text-center"><strong>Animal adoption</strong>
                             <br>

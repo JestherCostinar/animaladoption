@@ -65,12 +65,12 @@
                                     <a class="nav-link" href="<?php echo URLROOT; ?>/">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="dashboard.html">Dashboard</a>
+                                    <a class="nav-link" href="<?php echo URLROOT; ?>/pet/listOfPets">Pets to Adopt</a>
                                 </li>
                                 <li class="nav-item dropdown dropdown-slide">
                                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
-                                        Pages <span><i class="fa fa-angle-down"></i></span>
+                                        FAQ's <span><i class="fa fa-angle-down"></i></span>
                                     </a>
                                     <!-- Dropdown list -->
                                     <div class="dropdown-menu dropdown-menu-right">
@@ -84,18 +84,12 @@
                                         <a class="dropdown-item" href="single-blog.html">Single Post</a>
                                     </div>
                                 </li>
-                                <li class="nav-item dropdown dropdown-slide">
-                                    <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        Listing <span><i class="fa fa-angle-down"></i></span>
-                                    </a>
-                                    <!-- Dropdown list -->
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
+                                <?php if (isUserLoggedIn()) : ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?php echo URLROOT; ?>/auth/">Profile</a>
                                 </li>
+                                <?php endif; ?>
+
                             </ul>
                             <ul class="navbar-nav ml-auto mt-10">
                                 <?php if (!isUserLoggedIn()) : ?>
