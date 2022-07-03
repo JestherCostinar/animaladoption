@@ -35,36 +35,43 @@ require APPROOT . '/views/admin/includes/header.php';
                     </thead>
                     <tbody>
                         <?php foreach ($data['animal'] as $animal) : ?>
-                            <tr>
-                                <td class="pt-3-half">
-                                    <?php if (!empty($animal->image)) : ?>
-                                        <img class="rounded mx-auto d-block" src="<?php echo URLROOT . "/public/assets/img/" . $animal->image ?>" width="50" height="50px">
-                                    <?php endif; ?>
-                                </td>
-                                <td class="pt-3-half"><?php echo $animal->name; ?></td>
-                                <td class="pt-3-half"><?php echo $animal->breed; ?></td>
-                                <td class="pt-3-half"><?php echo $animal->gender; ?></td>
-                                <td class="pt-3-half"><?php echo $animal->age; ?></td>
-                                <td class="pt-3-half"><?php echo $animal->vaccinated; ?></td>
-                                <td class="pt-3-half">
-                                    <span class="badge badge-primary"><?php echo $animal->adoption_status; ?></span>
-                                </td>
-                                <td class="pt-3-half">
-                                    <span class="table-remove"><button type="button" class="btn btn-primary btn-rounded btn-sm my-0">
-                                            View
-                                        </button></span>
-                                </td>
-                                <td align="center">
-                                    <form action="<?php echo URLROOT . "/animal/delete/" . $animal->id ?>" method="POST" style="display: inline ">
-                                        <span class="table-remove">
-                                            <input type="submit" name="delete" value="Remove" class="btn btn-danger btn-rounded btn-sm my-0">
-                                        </span>
-                                    </form>
-                                    <span class="table-remove"><a href="<?php echo URLROOT . "/animal/update/" . $animal->id ?>" type="button" class="btn btn-success btn-rounded btn-sm my-0">
-                                            Update
+                        <tr>
+                            <td class="pt-3-half">
+                                <?php if (!empty($animal->image)) : ?>
+                                <img class="rounded mx-auto d-block"
+                                    src="<?php echo URLROOT . "/public/assets/img/" . $animal->image ?>" width="50"
+                                    height="50px">
+                                <?php endif; ?>
+                            </td>
+                            <td class="pt-3-half"><?php echo $animal->name; ?></td>
+                            <td class="pt-3-half"><?php echo $animal->breed; ?></td>
+                            <td class="pt-3-half"><?php echo $animal->gender; ?></td>
+                            <td class="pt-3-half"><?php echo $animal->age; ?></td>
+                            <td class="pt-3-half"><?php echo $animal->vaccinated; ?></td>
+                            <td class="pt-3-half">
+                                <span class="badge badge-primary"><?php echo $animal->adoption_status; ?></span>
+                            </td>
+                            <td class="pt-3-half">
+                                <span class="table-remove"><button type="button"
+                                        class="btn btn-primary btn-rounded btn-sm my-0">
+                                        View
+                                    </button></span>
+                            </td>
+                            <td align="center">
+                                <form action="<?php echo URLROOT . "/animal/delete/" . $animal->id ?>" method="POST"
+                                    style="display: inline ">
+                                    <span class="table-remove">
+                                        <input type="submit" name="delete" value="Remove"
+                                            class="btn btn-danger btn-rounded btn-sm my-0">
+                                    </span>
+                                </form>
+                                <span class="table-remove"><a
+                                        href="<?php echo URLROOT . "/animal/update/" . $animal->id ?>" type="button"
+                                        class="btn btn-success btn-rounded btn-sm my-0">
+                                        Update
                                     </a></span>
-                                </td>
-                            </tr>
+                            </td>
+                        </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>

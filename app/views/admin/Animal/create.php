@@ -20,23 +20,27 @@ require APPROOT . '/views/admin/includes/header.php';
                     </h6>
                 </div>
                 <div class="card-body">
-                    <form class="form-horizontal form-material mx-2" action="<?php echo URLROOT ?>/animal/create/" method="POST" enctype="multipart/form-data">
+                    <form class="form-horizontal form-material mx-2" action="<?php echo URLROOT ?>/animal/create/"
+                        method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label class="col-md-12 mb-0">Pet Image</label>
                             <div class="col-md-12">
-                                <input type="file" class="form-control ps-0 form-control-line" placeholder="Choose profile picture" name="pet_image">
+                                <input type="file" class="form-control ps-0 form-control-line"
+                                    placeholder="Choose profile picture" name="pet_image">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-12 mb-0">Pet Name</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control ps-0 form-control-line" name="pet_name" placeholder="Enter Pet Name">
+                                <input type="text" class="form-control ps-0 form-control-line" name="pet_name"
+                                    placeholder="Enter Pet Name">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-12 mb-0">Pet Breed</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control ps-0 form-control-line" name="pet_breed" placeholder="Enter Pet Breed">
+                                <input type="text" class="form-control ps-0 form-control-line" name="pet_breed"
+                                    placeholder="Enter Pet Breed">
                             </div>
                         </div>
 
@@ -65,14 +69,16 @@ require APPROOT . '/views/admin/includes/header.php';
                         <div class="form-group">
                             <label class="col-md-12">Pet Color</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control ps-0 form-control-line" name="pet_color" placeholder="Enter Pet Color">
+                                <input type="text" class="form-control ps-0 form-control-line" name="pet_color"
+                                    placeholder="Enter Pet Color">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-12">Vaccinated</label>
                             <div class="col-md-12">
                                 <select class="form-control input-sm" name="pet_vaccinated">
-                                    <option value="None" selected="selected">---Choose health information of pet---</option>
+                                    <option value="None" selected="selected">---Choose health information of pet---
+                                    </option>
                                     <option value="Vaccination up to date">Vaccination up to date</option>
                                     <option value="Not Vaccinated">Not Vaccinated</option>
                                 </select>
@@ -81,7 +87,13 @@ require APPROOT . '/views/admin/includes/header.php';
                         <div class="form-group">
                             <label class="col-md-12 mb-0">Pet Age</label>
                             <div class="col-md-12">
-                                <input type="text" class="form-control ps-0 form-control-line" name="pet_age" placeholder="Enter Pet Age">
+                                <select class="form-control input-sm" name="pet_age">
+                                    <option value="None" selected="selected">---Select Pet Age---</option>
+                                    <option value="Puppy">Puppy</option>
+                                    <option value="Young">Young</option>
+                                    <option value="Adult">Adult</option>
+                                    <option value="Senior">Senior</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
@@ -101,18 +113,21 @@ require APPROOT . '/views/admin/includes/header.php';
                         <div class="form-group">
                             <label class="col-md-12 mb-0">Adoption Fee</label>
                             <div class="col-md-12">
-                                <input type="number" class="form-control ps-0 form-control-line" name="adoption_fee" placeholder="Enter Adoption Fee">
+                                <input type="number" class="form-control ps-0 form-control-line" name="adoption_fee"
+                                    placeholder="Enter Adoption Fee">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-12 mb-0">Pet Description</label>
                             <div class="col-md-12">
-                                <textarea class="form-control ps-0 form-control-line" name="pet_description" id="" cols="30" rows="10" placeholder="Description..."></textarea>
+                                <textarea class="form-control ps-0 form-control-line" name="pet_description" id=""
+                                    cols="30" rows="10" placeholder="Description..."></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12 d-flex">
-                                <button type="submit" name="submit" class=" btn btn-success mx-auto mx-md-0 text-white">Save Information</button>
+                                <button type="submit" name="submit"
+                                    class=" btn btn-success mx-auto mx-md-0 text-white">Save Information</button>
                             </div>
                         </div>
                     </form>
