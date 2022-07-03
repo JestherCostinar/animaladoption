@@ -92,12 +92,11 @@ require APPROOT . '/views/users/includes/header.php';
                             <p class="card-text"><?php echo $animal->description; ?></p>
                             <div class="product-ratings">
                                 <?php if (isUserLoggedIn()) : ?>
-                                <a class="btn btn-block btn-primary text-white" href="">Adopt</a>
-                                <p>login</p>
+                                <a class="btn btn-block btn-primary text-white"
+                                    href="<?php echo URLROOT . "/pet/" . $animal->id?>">Adopt</a>
                                 <?php else:?>
                                 <a href="<?php echo URLROOT ?>/auth/register"
                                     class="btn btn-block btn-primary text-white">Adopt</a>
-                                not login
                                 <?php endif; ?>
                             </div>
                         </div>
