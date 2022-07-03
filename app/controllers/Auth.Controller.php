@@ -1,7 +1,7 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
 
 require APPROOT . '/PHPMailer-master/PHPMailer-master/src/Exception.php';
 require APPROOT . '/PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
@@ -18,6 +18,7 @@ class Auth extends Controller
 
     public function index()
     {
+        $this->login();
     }
 
     // Admin Login/Index function
@@ -67,6 +68,37 @@ class Auth extends Controller
             }
         }
         $this->view('admin/login', $data);
+    }
+    
+    // User Login Controller
+    public function login() {
+        $data = [
+            'title' => 'login',
+            'loginMessage' => '',
+        ];
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data = [
+                'title' => 'login',
+                'loginMessage' => '',
+                'email' => $_POST['email'],
+                'password' => $_POST['password'],
+            ];
+
+            $loggedInUser = $this->userModel->login($data['email'], $data['password']);
+
+            if ($loggedInUser) {
+                $this->createUserSession($loggedInUser);
+            } else {
+                $data['loginMessage'] = 'Invalid Username or Password. Please Try again.';
+                $this->view('users/login', $data);
+            }
+        }
+
+        $this->view('users/login', $data);
     }
 
     // User Registration Controller 
@@ -136,7 +168,7 @@ class Auth extends Controller
             // ===================================== //
 
             // Firstname, lastname, middle initial. Accept only a-z and A-Z
-            $nameValidation = "/^[a-zA-Z0-9\s]*$/";
+            $nameValidation = "/^[a-zA-Z\s]*$/";
 
             // Firstname Validation
             if (empty($data['firstname'])) {
@@ -299,7 +331,7 @@ class Auth extends Controller
                 'verificationCode' => $_POST['verificationCode']
             ];
 
-            if ($data['verificationCode'] === $verificationCode) {
+            if ($data['verificationCode'] == $verificationCode) {
                 if ($this->userModel->updateAccountStatus($_SESSION['account_to_verify'])) {
                     unset($_SESSION['account_to_verify']);
                     header('Location: ' . URLROOT . '/auth/');
@@ -357,6 +389,23 @@ class Auth extends Controller
 
     // Unset session after logout
     public function adminLogout()
+    {
+        unset($_SESSION['admin_id']);
+        unset($_SESSION['username']);
+        unset($_SESSION['email']);
+        header('location:' . URLROOT . '/auth/admin');
+    }
+
+    // Session after admin login
+    public function createUserSession($user)
+    {
+        $_SESSION['id'] = $user->id;
+        $_SESSION['email'] = $user->email;
+        header('location:' . URLROOT . '/index');
+    }
+    
+    // Unset session after logout
+    public function logout()
     {
         unset($_SESSION['admin_id']);
         unset($_SESSION['username']);
