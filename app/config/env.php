@@ -1,5 +1,4 @@
 <?php
-
 // App config
 define("APPROOT", dirname(dirname(__FILE__)));
 define("URLROOT", "http://localhost/animaladoption");
