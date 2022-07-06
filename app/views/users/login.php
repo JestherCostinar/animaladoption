@@ -32,7 +32,9 @@ require APPROOT . '/views/users/includes/header.php';
                         <button class="btn btn-block btn-primary">Login</button>
                     </form>
                     <div id="formFooter" class="text-center">
-                        <a class="underlineHover" style="text-decoration: underline;" href="#">Forgot Password?</a>
+                        <span><a class="underlineHover" style="text-decoration: underline;" href="#">Forgot
+                                Password?</a> | <a class="underlineHover" style="text-decoration: underline;"
+                                href="<?php echo URLROOT; ?>/auth/register">Register Account</a></span>
                     </div>
                 </div>
             </div>

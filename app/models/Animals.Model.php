@@ -17,6 +17,13 @@ class Animals
         return $this->db->resultset();
     }
 
+    // function that return not adopted animal status
+    public function findAnimalsByStatus() {
+        $this->db->query("SELECT * FROM animals WHERE adoption_status = :status");
+        $this->db->bind(':status', 'Not adopted');
+        return $this->db->resultset();
+    }
+
 
     // Save Animal Record to Database
     public function insertAnimal($data)

@@ -29,7 +29,7 @@ class Pet extends Controller{
     }
 
     public function listOfPets() {
-        $animals = $this->animalModel->getAnimals();
+        $animals = $this->animalModel->findAnimalsByStatus();
         if (isUserLoggedIn()) {
             $userProfile = $this->userModel->findUserById($_SESSION['id']);
         } else {
